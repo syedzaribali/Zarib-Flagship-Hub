@@ -47,6 +47,20 @@ body{
     align-items:center;
 }
 
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.nav-logo-img{
+    height:38px;
+    width:38px;
+    border-radius:8px;
+    object-fit:cover;
+    border:1px solid rgba(53,201,255,.4);
+}
+
 .logo{
     font-size:21px;
     font-weight:800;
@@ -115,22 +129,36 @@ body{
     font-size: 12px;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO WITH BANNER ================= */
 
 .hero{
-    min-height:650px;
+    min-height:680px;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     padding:80px 20px;
+    /* Hero Banner Image Layered with Dark Gradient Overlay for Text Readability */
     background:
-    radial-gradient(circle at 50% 20%,rgba(0,183,255,.20),transparent 35%),
-    linear-gradient(135deg,#070b14,#0b1222,#05070d);
+    linear-gradient(135deg, rgba(7, 11, 20, 0.88), rgba(11, 18, 34, 0.88)),
+    url('https://i.postimg.cc/qhb9wfMt/IMG-20260912-155509.png') center/cover no-repeat;
 }
 
 .hero-content{
     max-width:850px;
+}
+
+.hero-avatar-container{
+    margin-bottom:20px;
+}
+
+.hero-avatar{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #35c9ff;
+    box-shadow:0 0 25px rgba(53,201,255,0.4);
 }
 
 .hero-badge{
@@ -584,8 +612,11 @@ footer p{
 
 <div class="nav-container">
 
+<div class="logo-container">
+<img src="YOUR_LOGO_IMAGE_URL.jpg" alt="Zarib Flagship Hub Logo" class="nav-logo-img" onerror="this.style.display='none'">
 <div class="logo">
 ZARIB <span>FLAGSHIP HUB</span>
+</div>
 </div>
 
 <nav class="nav-links">
@@ -609,6 +640,10 @@ ZARIB <span>FLAGSHIP HUB</span>
 <section class="hero" id="home">
 
 <div class="hero-content">
+
+<div class="hero-avatar-container">
+<img src="YOUR_COVER_OR_LOGO_IMAGE_URL.jpg" alt="Zarib Flagship Hub Cover" class="hero-avatar" onerror="this.style.display='none'">
+</div>
 
 <div class="hero-badge">
 🇵🇰 Online Smartphone Store • Pakistan
@@ -1202,63 +1237,4 @@ the specified warranty period.
 
 <p>
 The warranty does not cover issues outside the
-specific components or conditions stated by
-Zarib Flagship Hub.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="section contact" id="contact">
-
-<div class="section-title">
-
-<h2>Ready for Your Next Flagship?</h2>
-
-<p>
-Contact Zarib Flagship Hub directly to check availability
-and place your order.
-</p>
-
-</div>
-
-
-<div class="hero-buttons">
-
-<a
-href="https://wa.me/923003100176"
-class="btn btn-primary"
->
-💬 WhatsApp: +92 300 3100176
-</a>
-
-<a
-href="tel:+923003100176"
-class="btn btn-outline"
->
-📞 Call Us
-</a>
-
-</div>
-
-
-<div class="socials">
-
-<a href="https://www.facebook.com/share/1C2xMXGVYN/" target="_blank">
-Facebook
-</a>
-
-<a href="https://www.instagram.com/syedzaribali" target="_blank">
-Instagram
-</a>
-
-<a href="https://whatsapp.com/channel/0029Vb8E6H72v1J1DhJN5630" target="_blank" class="follower-btn">
-<span class="follower-icon">💬</span> WhatsAp
+specific compon
