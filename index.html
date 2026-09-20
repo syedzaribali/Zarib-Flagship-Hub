@@ -56,7 +56,7 @@ body{
 .nav-logo-img{
     height:38px;
     width:38px;
-    border-radius:8px;
+    border-radius:50%;
     object-fit:cover;
     border:1px solid rgba(53,201,255,.4);
 }
@@ -74,7 +74,7 @@ body{
 .nav-links{
     display:flex;
     align-items:center;
-    gap:25px;
+    gap:20px;
 }
 
 .nav-links a{
@@ -129,6 +129,37 @@ body{
     font-size: 12px;
 }
 
+/* ================= LIVE VIEWER WIDGET ================= */
+
+.live-viewer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    padding: 8px 18px;
+    border-radius: 25px;
+    color: #fca5a5;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: pulse 2s infinite;
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
 /* ================= HERO WITH BANNER ================= */
 
 .hero{
@@ -138,7 +169,6 @@ body{
     justify-content:center;
     text-align:center;
     padding:80px 20px;
-    /* Hero Banner Image Layered with Dark Gradient Overlay for Text Readability */
     background:
     linear-gradient(135deg, rgba(7, 11, 20, 0.88), rgba(11, 18, 34, 0.88)),
     url('https://i.postimg.cc/qhb9wfMt/IMG-20260912-155509.png') center/cover no-repeat;
@@ -153,8 +183,8 @@ body{
 }
 
 .hero-avatar{
-    width:110px;
-    height:110px;
+    width:120px;
+    height:120px;
     border-radius:50%;
     object-fit:cover;
     border:3px solid #35c9ff;
@@ -329,12 +359,6 @@ body{
     color:#fff;
 }
 
-.price small{
-    font-size:13px;
-    color:#8390a5;
-    font-weight:normal;
-}
-
 .product-buttons{
     display:flex;
     gap:10px;
@@ -359,6 +383,109 @@ body{
     padding:13px;
     border-radius:9px;
     text-decoration:none;
+}
+
+/* ================= STOCK LIST TABLE ================= */
+
+.stock-table-container {
+    overflow-x: auto;
+    background: #0d1422;
+    border-radius: 16px;
+    border: 1px solid #1e293b;
+    padding: 10px;
+}
+
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.stock-table th, .stock-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stock-table th {
+    background: #111827;
+    color: #35c9ff;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.stock-table tr:last-child td {
+    border-bottom: none;
+}
+
+.stock-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-in-stock {
+    background: rgba(37, 211, 102, 0.15);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.status-low-stock {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.review-card {
+    background: #0d1422;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 22px;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    border-color: rgba(53, 201, 255, 0.4);
+    transform: translateY(-4px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
+
+.reviewer-city {
+    font-size: 12px;
+    color: #8492a8;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    color: #aebbd0;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 /* ================= SPECS ================= */
@@ -438,7 +565,7 @@ body{
     line-height:1.5;
 }
 
-/* ================= DELIVERY ================= */
+/* ================= DELIVERY & INFO ================= */
 
 .info-box{
     background:linear-gradient(135deg,#0d1727,#101827);
@@ -551,6 +678,10 @@ footer p{
         grid-template-columns:1fr 1fr;
     }
 
+    .reviews-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 @media(max-width:650px){
@@ -587,6 +718,10 @@ footer p{
         grid-template-columns:1fr;
     }
 
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
     .spec-grid{
         grid-template-columns:1fr;
     }
@@ -613,7 +748,7 @@ footer p{
 <div class="nav-container">
 
 <div class="logo-container">
-<img src="YOUR_LOGO_IMAGE_URL.jpg" alt="Zarib Flagship Hub Logo" class="nav-logo-img" onerror="this.style.display='none'">
+<img src="https://i.postimg.cc/nj2Qwk6s/Zarib-flagship-hub-logo.jpg" alt="Zarib Flagship Hub Logo" class="nav-logo-img">
 <div class="logo">
 ZARIB <span>FLAGSHIP HUB</span>
 </div>
@@ -622,9 +757,10 @@ ZARIB <span>FLAGSHIP HUB</span>
 <nav class="nav-links">
 <a href="#home">Home</a>
 <a href="#phones">Phones</a>
-<a href="#why">Why Us</a>
+<a href="#stock">Stock List</a>
+<a href="#reviews">Reviews</a>
+<a href="#about">About Us</a>
 <a href="#delivery">Delivery</a>
-<a href="#contact">Contact</a>
 <a href="https://whatsapp.com/channel/0029Vb8E6H72v1J1DhJN5630" target="_blank" class="follower-btn nav-follower-btn">
 <span class="follower-icon">👤</span> Follow <span class="follower-count">1,042</span>
 </a>
@@ -642,7 +778,7 @@ ZARIB <span>FLAGSHIP HUB</span>
 <div class="hero-content">
 
 <div class="hero-avatar-container">
-<img src="YOUR_COVER_OR_LOGO_IMAGE_URL.jpg" alt="Zarib Flagship Hub Cover" class="hero-avatar" onerror="this.style.display='none'">
+<img src="https://i.postimg.cc/nj2Qwk6s/Zarib-flagship-hub-logo.jpg" alt="Zarib Flagship Hub Logo" class="hero-avatar">
 </div>
 
 <div class="hero-badge">
@@ -666,10 +802,20 @@ and reliable service across Pakistan.
 Explore Phones →
 </a>
 
+<a href="https://wa.me/923003100176?text=Hello%20Zarib%20Flagship%20Hub%2C%20I%20want%20to%20buy%20a%20phone." class="btn btn-primary" style="background:#25d366; color:white;">
+⚡ Buy Now
+</a>
+
 <a href="https://wa.me/923003100176" class="btn btn-outline">
 💬 WhatsApp Us
 </a>
 
+</div>
+
+<div>
+<div class="live-viewer-badge">
+<span class="live-dot"></span> 🔥 <span id="viewer-count">29</span> people are viewing this right now — Hurry up, buy now!
+</div>
 </div>
 
 <div style="margin-top: 25px;">
@@ -736,7 +882,7 @@ PKR 164,999
 class="order-btn"
 href="https://wa.me/923003100176?text=Hello%20Zarib%20Flagship%20Hub%2C%20I%20want%20to%20order%20the%20Redmi%20K90%20Pro%20Max."
 >
-Order
+Order Now
 </a>
 
 <a href="#redmi-specs" class="details-btn">
@@ -784,7 +930,7 @@ PKR 145,000
 class="order-btn"
 href="https://wa.me/923003100176?text=Hello%20Zarib%20Flagship%20Hub%2C%20I%20want%20to%20order%20the%20Realme%20GT%208."
 >
-Order
+Order Now
 </a>
 
 <a href="#gt8-specs" class="details-btn">
@@ -832,7 +978,7 @@ PKR 179,999
 class="order-btn"
 href="https://wa.me/923003100176?text=Hello%20Zarib%20Flagship%20Hub%2C%20I%20want%20to%20order%20the%20Realme%20GT%208%20Pro."
 >
-Order
+Order Now
 </a>
 
 <a href="#gt8pro-specs" class="details-btn">
@@ -850,391 +996,111 @@ Details
 </section>
 
 
-<!-- ================= SPECS ================= -->
+<!-- ================= STOCK LIST ================= -->
 
-<section class="spec-section">
-
-<div class="section">
+<section class="section" id="stock">
 
 <div class="section-title">
 
-<h2>Phone Specifications</h2>
+<h2>Mobile Phone Stock List</h2>
 
-<p>Detailed model information</p>
-
-</div>
-
-
-<!-- REDMI SPECS -->
-
-<div class="spec-card" id="redmi-specs">
-
-<h3>📱 Redmi K90 Pro Max</h3>
-
-<div class="spec-grid">
-
-<div class="spec">
-<strong>Processor</strong>
-<span>Snapdragon 8 Elite Gen 5</span>
-</div>
-
-<div class="spec">
-<strong>Display</strong>
-<span>6.9" LTPO AMOLED • 120Hz</span>
-</div>
-
-<div class="spec">
-<strong>Rear Camera</strong>
-<span>50MP + 50MP + 50MP</span>
-</div>
-
-<div class="spec">
-<strong>Front Camera</strong>
-<span>32MP</span>
-</div>
-
-<div class="spec">
-<strong>Battery</strong>
-<span>7,560mAh</span>
-</div>
-
-<div class="spec">
-<strong>Charging</strong>
-<span>100W Wired • 50W Wireless</span>
-</div>
-
-<div class="spec">
-<strong>Software</strong>
-<span>Android 16 • HyperOS 3</span>
-</div>
-
-<div class="spec">
-<strong>Network</strong>
-<span>5G • Dual SIM</span>
-</div>
+<p>Updated daily with current availability and pricing.</p>
 
 </div>
 
+<div class="stock-table-container">
+<table class="stock-table">
+<thead>
+<tr>
+<th>Device Model</th>
+<th>Condition</th>
+<th>Box & Accessories</th>
+<th>Price (PKR)</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Redmi K90 Pro Max</strong></td>
+<td>10/10 Brand New</td>
+<td>Complete Original Box</td>
+<td>PKR 164,999</td>
+<td><span class="stock-status status-in-stock">In Stock</span></td>
+</tr>
+<tr>
+<td><strong>Realme GT 8 Pro</strong></td>
+<td>10/10 Brand New</td>
+<td>Complete Original Box</td>
+<td>PKR 179,999</td>
+<td><span class="stock-status status-in-stock">In Stock</span></td>
+</tr>
+<tr>
+<td><strong>Realme GT 8</strong></td>
+<td>10/10 Brand New</td>
+<td>Complete Original Box</td>
+<td>PKR 145,000</td>
+<td><span class="stock-status status-low-stock">Limited Stock</span></td>
+</tr>
+<tr>
+<td><strong>iQOO 13 Flagship</strong></td>
+<td>10/10 Mint Condition</td>
+<td>Complete Box</td>
+<td>Contact on WhatsApp</td>
+<td><span class="stock-status status-in-stock">In Stock</span></td>
+</tr>
+<tr>
+<td><strong>OnePlus 13 Series</strong></td>
+<td>10/10 Brand New</td>
+<td>Complete Box</td>
+<td>Contact on WhatsApp</td>
+<td><span class="stock-status status-low-stock">Limited Stock</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 
-
-<!-- GT8 SPECS -->
-
-<div class="spec-card" id="gt8-specs">
-
-<h3>📱 Realme GT 8</h3>
-
-<div class="spec-grid">
-
-<div class="spec">
-<strong>Processor</strong>
-<span>Snapdragon 8 Elite</span>
-</div>
-
-<div class="spec">
-<strong>Display</strong>
-<span>6.79" LTPO AMOLED • 144Hz • QHD+</span>
-</div>
-
-<div class="spec">
-<strong>Rear Camera</strong>
-<span>50MP + 50MP Periscope + 8MP</span>
-</div>
-
-<div class="spec">
-<strong>Front Camera</strong>
-<span>16MP</span>
-</div>
-
-<div class="spec">
-<strong>Battery</strong>
-<span>7,000mAh</span>
-</div>
-
-<div class="spec">
-<strong>Charging</strong>
-<span>100W Fast Charging</span>
-</div>
-
-<div class="spec">
-<strong>Software</strong>
-<span>Android 16 • realme UI 7</span>
-</div>
-
-<div class="spec">
-<strong>Network</strong>
-<span>5G • Dual SIM</span>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- GT8 PRO SPECS -->
-
-<div class="spec-card" id="gt8pro-specs">
-
-<h3>📱 Realme GT 8 Pro</h3>
-
-<div class="spec-grid">
-
-<div class="spec">
-<strong>Processor</strong>
-<span>Snapdragon 8 Elite Gen 5</span>
-</div>
-
-<div class="spec">
-<strong>Display</strong>
-<span>6.79" QHD+ AMOLED • 144Hz</span>
-</div>
-
-<div class="spec">
-<strong>Rear Camera</strong>
-<span>50MP + 50MP Ultra-wide + 200MP Telephoto</span>
-</div>
-
-<div class="spec">
-<strong>Front Camera</strong>
-<span>32MP</span>
-</div>
-
-<div class="spec">
-<strong>Battery</strong>
-<span>7,000mAh Titan Battery</span>
-</div>
-
-<div class="spec">
-<strong>Charging</strong>
-<span>120W Wired • 50W Wireless</span>
-</div>
-
-<div class="spec">
-<strong>Storage</strong>
-<span>Configurations up to 16GB RAM / 512GB+</span>
-</div>
-
-<div class="spec">
-<strong>Network</strong>
-<span>5G • Dual SIM</span>
-</div>
-
-</div>
-
-</div>
-
-<p style="text-align:center;color:#68768b;font-size:12px;margin-top:20px;">
-Specifications are based on published model information. RAM, storage,
-color and regional/network configurations may vary by the specific unit.
-</p>
-
+<div style="text-align: center; margin-top: 25px;">
+<a href="https://wa.me/923003100176?text=Hello%20Zarib%20Flagship%20Hub%2C%20I%20want%20to%20inquire%20about%20the%20latest%20stock." class="btn btn-outline">
+📲 Inquire Complete Stock on WhatsApp
+</a>
 </div>
 
 </section>
 
 
-<!-- ================= WHY US ================= -->
+<!-- ================= REVIEWS ================= -->
 
-<section class="section" id="why">
-
-<div class="section-title">
-
-<h2>Why Zarib Flagship Hub?</h2>
-
-<p>Simple, transparent and customer-focused.</p>
-
-</div>
-
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">📦</div>
-
-<h3>Complete Box</h3>
-
-<p>
-Our listed devices are offered as complete-box units.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">🛡️</div>
-
-<h3>7-Day Checking</h3>
-
-<p>
-7-day checking warranty on the specified covered components.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">🚚</div>
-
-<h3>Free Delivery</h3>
-
-<p>
-Free delivery across Pakistan according to our advance-payment policy.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">💬</div>
-
-<h3>Direct Support</h3>
-
-<p>
-Contact us directly through WhatsApp or phone before ordering.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= DELIVERY ================= -->
-
-<section class="section" id="delivery">
+<section class="section" id="reviews">
 
 <div class="section-title">
 
-<h2>Delivery & Payment</h2>
+<h2>Customer Reviews</h2>
 
-<p>Everything you need to know before ordering.</p>
-
-</div>
-
-
-<div class="info-box">
-
-<div class="info-grid">
-
-<div class="info-item">
-
-<h3>🚚 Free Nationwide Delivery</h3>
-
-<p>
-We offer free delivery across Pakistan.
-Customers in Rawalpindi, Lahore and Multan
-can order with partial advance payment.
-</p>
+<p>What our satisfied buyers say across Pakistan.</p>
 
 </div>
 
+<div class="reviews-grid">
 
-<div class="info-item">
-
-<h3>💳 Payment Methods</h3>
-
-<p>
-Bank Transfer<br>
-Easypaisa<br>
-JazzCash
-</p>
-
+<div class="review-card">
+<div class="review-header">
+<span class="reviewer-name">Ahmed</span>
+<span class="reviewer-city">Lahore</span>
+</div>
+<div class="stars">★★★★★ <span style="color:#8492a8; font-size:12px;">5.0</span></div>
+<p class="review-text">Excellent devices with 100% good condition. Zarib brother is a trusted person, received my phone on time!</p>
 </div>
 
-
-<div class="info-item">
-
-<h3>📦 Other Cities</h3>
-
-<p>
-Orders from other cities require complete
-advance payment before dispatch.
-</p>
-
+<div class="review-card">
+<div class="review-header">
+<span class="reviewer-name">Hassan Ali</span>
+<span class="reviewer-city">Rawalpindi</span>
+</div>
+<div class="stars">★★★★★ <span style="color:#8492a8; font-size:12px;">5.0</span></div>
+<p class="review-text">100% trusted seller. Very honest price all over Pakistan compared to local offline market shops.</p>
 </div>
 
-
-<div class="info-item">
-
-<h3>🏠 Online Store</h3>
-
-<p>
-Zarib Flagship Hub operates online from home
-and serves customers across Pakistan.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= WARRANTY ================= -->
-
-<section class="section">
-
-<div class="section-title">
-
-<h2>Warranty & Returns</h2>
-
-<p>Our policy is simple and transparent.</p>
-
-</div>
-
-
-<div class="info-box">
-
-<div class="info-grid">
-
-<div class="info-item">
-
-<h3>🛡️ 7-Day Checking Warranty</h3>
-
-<p>
-A 7-day checking warranty is provided on the
-specific components covered by the warranty.
-</p>
-
-</div>
-
-
-<div class="info-item">
-
-<h3>🔎 Check Before Acceptance</h3>
-
-<p>
-Customers can check important functions including
-display, fingerprint and camera on the spot.
-</p>
-
-</div>
-
-
-<div class="info-item">
-
-<h3>🔄 Returns</h3>
-
-<p>
-Returns are accepted only if there is an issue
-covered under the applicable warranty and within
-the specified warranty period.
-</p>
-
-</div>
-
-
-<div class="info-item">
-
-<h3>⚠️ Important</h3>
-
-<p>
-The warranty does not cover issues outside the
-specific compon
+<div class="review-card">
+<div class="review-header">
+<span class="reviewer-name">Hussain</span>
+                               
